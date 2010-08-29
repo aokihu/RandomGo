@@ -1,54 +1,16 @@
 <html>
 	<head>
-		<title>Random It!</title>
-		<style>
-		#button{
-			width:240px;
-			height:100px;
-			border:2px solid #fff;
-			font-size:1.7em;
-			text-decoration: none;
-			text-align:center;
-			color:#fff;
-			line-height:100px;
-			overflow:hidden;
-			text-shadow:0 1px 1px gray;
-			-webkit-border-radius:5px;
-			background:-webkit-gradient(
-							linear, 
-							0 0, 
-							0 100%,
-							from(rgb(159,235,59)) ,
-							to(rgb(128,168,16))
-							);
-			-webkit-box-shadow:0 0 3px rgb(128,168,16);
-			-webkit-transition:all 0.5;
-		}
-		
-		#button:hover{
-			
-		}
-		</style>
+		<title>Random Go!</title>
+		<link rel="stylesheet" href="style/main.css" type="text/css" />
+		<link rel="stylesheet" href="style/color_button.css" type="text/css" />
+		<script src="script/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="script/websites.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<a href="#" id="button">Random It!</a>
+		<a href="#" id="button" class="green">Random It!</a>
+		<div id="footer">
+			<div id="author"></div>
+			<div id="feedback"><a href="mailto:aokihu@gmail.com" id="feedback_hyperlink">feedback</a></div>
+		</div>
 	</body>
-	<script type="text/javascript">
-	window.onload   = function(){setButtonPosition()};
-	window.onresize = function(){setButtonPosition()};
-	
-	// set button position
-	function setButtonPosition(){
-		var win = {
-			w:window.innerWidth,
-			h:window.innerHeight
-		}
-	
-		var button = document.getElementById("button");
-	
-		button.style.position = "absolute";
-		button.style.left     = (win.w - button.offsetWidth) / 2 + "px";
-		button.style.top      = (win.h - button.offsetHeight) / 2 + "px";
-	}
-	</script>
 </html>

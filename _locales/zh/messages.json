@@ -1,0 +1,14 @@
+{
+	"buttonText":{
+		"message":"随便看看!",
+		"description":"随便看看按钮文字"
+	},
+	"authorLabel":{
+		"message":"制作者",
+		"description":"作者明处女宫标签"
+	},
+	"feedbackLabel":{
+		"message":"我要反馈",
+		"description":"给我发送一个反馈邮件"
+	}
+}

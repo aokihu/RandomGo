@@ -1,0 +1,14 @@
+{
+	"buttonText":{
+		"message":"Random Go!",
+		"description":"Button text"
+	},
+	"authorLabel":{
+		"message":"author",
+		"description":"author name"
+	},
+	"feedbackLabel":{
+		"message":"feedback",
+		"description":"send me a feedback"
+	}
+}
