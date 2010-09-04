@@ -1,17 +1,21 @@
 // define contant varible
 gRandBtn = null;
 
+// button colors
+var btnColors = ['black','white','orange',
+                 'green','pink','gray',
+                 'red','blue','rosy'];
+
 window.onload   = onLoad;
 window.onresize = onWindowResize;
 
 // when widnow is loaded
 function onLoad(){
-	gRandBtn = document.getElementById("button")
+	gRandBtn = document.getElementById("button");
     setCenterInWindow(gRandBtn);
-	changeButtonColor(gRandBtn,2);
+	chooseButtonColor();
 	selectSiteHrefByRandom(gRandBtn);
 	setPageToLocaleString();
-	
 }
 
 // when window is resized
@@ -35,25 +39,36 @@ function setCenterInWindow(button){
 // @param i:int the color index
 function changeButtonColor(button,i)
 {
-	var colors = ['black','white','orange',
-                  'green','pink','gray',
-                  'red','blue','rosy'];
+	button.className = btnColors[i];
+}
 
-	button.className = colors[i];
+//
+// choose a button'color when open the window 
+function chooseButtonColor()
+{
+	var i = -1;
+	while(i < 0 || i > btnColors.length - 1)
+	{
+		i = Math.round(Math.random()*10);
+	}
+	
+	changeButtonColor(gRandBtn, i);
 }
 
 // select a site from gWebsites by random
 function selectSiteHrefByRandom(button)
 {
+	var sites = getSitesData();
+	
 	genrate:
 	var roll = -1;
 	
-	while(roll < 0 || roll > gWebsites.length)
+	while(roll < 0 || roll > sites.length - 1)
 	{
-		roll = Math.round(Math.random() * 100);
+		roll = Math.round(Math.random() * sites.length);
 	}
 	
-	button.href = gWebsites[roll];
+	button.href = sites[roll];
 }
 
 // set the page content text to locale string
@@ -69,8 +84,6 @@ function setLocalString(element,localString)
 {
 	element.innerHTML = localString;
 }
-
-
 
 // ping a web site
 function ping(url)

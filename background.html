@@ -1,9 +1,34 @@
 <html>
+<script src="script/transpot.js" type="text/javascript" charset="utf-8"></script>
 <script>
+var kRefreshTime = 50000;
+/*
+ * !!! IMPORTANT DO NOT DELETE OR CHANGE IT
+*/
 chrome.browserAction.onClicked.addListener(function(tab) {
 	chrome.tabs.create({
 		url:(function(){return chrome.extension.getURL("main.html")})()
 	});
 });
+
+// @function update website data from my server
+function updateWebsites()
+{
+	var t = new transpot("http://www.kayonees.com/randomgo/sites.json?"+(new Date()),_callback);
+	
+	function _callback(data)
+	{
+		console.log("recv:"+data.text);
+		localStorage['sites'] = eval('('+ data.text +')');
+	}
+	
+	console.log(localStorage['sites'] +"\n update at " + (new Date()).toString());
+	
+	setTimeout(function(){updateWebsites()},kRefreshTime);
+}
+
+// call update function ervery 10s
+updateWebsites();
+
 </script>
 </html>
